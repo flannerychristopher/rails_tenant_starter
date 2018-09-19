@@ -1,3 +1,5 @@
+starter app using 'activerecord-multi-tenant' tenants, 'devise' authentication, 'pundit' policies
+
 * Ruby version
   2.5.1
 * Rails version
