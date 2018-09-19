@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<% @tenant_user.tenants.each do |tenant| %>
+  <p><%= tenant.name %></p>
+<% end %>
+
+<%#= link_to 'Edit', edit_tenant_user_path(@tenant_user) %> |
+<%= link_to 'Back', tenant_users_path %>

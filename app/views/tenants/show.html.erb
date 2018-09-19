@@ -1,0 +1,15 @@
+<p>
+  <strong>Name:</strong>
+  <%= @tenant.name %>
+  
+</p>
+
+<% @events.each do |event| %>
+  <p><%= event.name %></p>
+<% end %>
+
+<%= link_to 'Show Users', tenant_users_path(@tenant.id) %>
+<br>
+<br>
+<%= link_to 'Edit', edit_tenant_path(@tenant) %> |
+<%= link_to 'Back', tenants_path %>
