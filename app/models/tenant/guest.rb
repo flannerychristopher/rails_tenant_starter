@@ -1,4 +1,4 @@
-class Tenant::Guest < ApplicationRecord
+class Tenant::Guest < Tenant::User
   
   def email
     "no email for guest user"
@@ -15,4 +15,5 @@ class Tenant::Guest < ApplicationRecord
   def tenants
     []
   end
+
 end

@@ -9,14 +9,6 @@ class ApplicationController < ActionController::Base
 
   # before_action :authenticate_user!
 
-  # wrap devise to guarantee a current_user_object
-  # alias_method :devise_current_user, :current_user
-  # def current_user
-  #   return devise_current_admin_user if devise_current_admin_user
-  #   return devise_current_tenant_user if devise_current_tenant_user
-  #   return Tenant::Guest.new
-  # end
-
   private
     
     def set_tenant_as_current_tenant

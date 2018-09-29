@@ -5,9 +5,9 @@ class TenantPolicy < ApplicationPolicy
     attr_reader :user, :tenant
     def resolve
       # if user.has_role?(:admin, tenant)
-        scope.all
+        # scope.all
       # else
-      #   user.tenants
+        user.tenants
       # end
     end
   end

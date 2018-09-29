@@ -12,4 +12,7 @@ class Tenant::User < ApplicationRecord
 
   has_many :roles, class_name: "Tenant::UsersRole", foreign_key: "user_id", dependent: :destroy
 
+  def is_a_guest?
+    self.class == Tenant::Guest
+  end
 end

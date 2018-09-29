@@ -12,8 +12,8 @@
 
   <body>
     <h1>Current Tenant: <%= current_tenant.try(:id) || "no tenant" %></h1>
-    <p>Current User: <%#= current_user.try(:email) %> - 
-      <%#= current_user.has_role?(:admin, current_tenant) ? "admin" : "not admin" %>
+    <p>Current User: <%= current_tenant_user.try(:email) %> - 
+      <%= current_tenant_user.has_role?(:admin, current_tenant) ? "admin" : "not admin" %>
     </p>
 
     <% flash.each do |key, value| %>
@@ -23,11 +23,13 @@
     <% end %>
 
     <div>
-      <%# if user_signed_in? %>
-        <%#= link_to "Sign out", destroy_tenant_user_session_path, method: :delete %>
-      <%# else %>
-        <%#= link_to "Sign in", new_user_session_path %>
-      <%# end %>
+      <% if current_tenant_user.is_a_guest? %>
+        <%= link_to "Sign In", new_tenant_user_session_path %>
+        - 
+        <%= link_to "Sign Up", new_tenant_user_registration_path %>
+      <% else %>
+        <%= link_to "Sign Out", destroy_tenant_user_session_path, method: :delete %>
+      <% end %>
     </div>
     
     <%= react_component("HelloWorld", { greeting: "Hello" }) %>

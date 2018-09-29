@@ -1,4 +1,6 @@
 class TenantsController < ApplicationController
+  include TenantsHelper
+  
   before_action :set_tenant, only: [:show, :edit, :update, :destroy]
 
   # GET /tenants
@@ -75,5 +77,9 @@ class TenantsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tenant_params
       params.require(:tenant).permit(:name)
+    end
+
+    def pundit_user
+      current_tenant_user
     end
 end

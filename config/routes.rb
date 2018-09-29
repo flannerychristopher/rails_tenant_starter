@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :tenants do
-      resources :users
+      resources :tenant_users
     end
   end
   
