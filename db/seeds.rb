@@ -28,5 +28,5 @@
 
 end
 
-Role.first_or_create(name: :super_admin)
-Role.first_or_create(name: :admin)
+Tenant::Role.first_or_create(name: :super_admin)
+Tenant::Role.first_or_create(name: :admin)
